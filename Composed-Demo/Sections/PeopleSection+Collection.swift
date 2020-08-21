@@ -38,9 +38,8 @@ extension PeopleSection: CollectionFlowLayoutHandler {
 
     func sizingStrategy(at index: Int, metrics: CollectionFlowLayoutMetrics, environment: CollectionFlowLayoutEnvironment) -> CollectionFlowLayoutSizingStrategy? {
         prototypeCell.titleLabel.text = element(at: index).name
-        return CollectionFlowLayoutSizingStrategy(prototype: prototypeCell,
-                                                  columnCount: 1, //Int(floor(environment.contentSize.width / 320)),
-                                                  sizingMode: .automatic(isUniform: true),
+        return CollectionFlowLayoutSizingStrategy(columnCount: 1, //Int(floor(environment.contentSize.width / 320)),
+                                                  sizingMode: .automatic(isUniform: true, prototype: prototypeCell),
                                                   metrics: metrics)
     }
 
